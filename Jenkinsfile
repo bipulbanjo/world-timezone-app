@@ -18,7 +18,7 @@ pipeline{
 				}
 			stage('Perform Regression Testing'){
 				steps{
-					bat 'C:\\Users\\Vishal\\AppData\\Roaming\\npm newman E:\\TestSuite\\worldtimezone-test-collection.postman_collection.json -r htmlextra --reporter-htmlextra-export E:\\TestSuite --reporter-htmlextra-darkTheme'
+					bat 'C:\\Users\\Vishal\\AppData\\Roaming\\npm newman run E:\\TestSuite\\worldtimezone-test-collection.postman_collection.json -r htmlextra --reporter-htmlextra-export E:\\TestSuite --reporter-htmlextra-darkTheme'
 					}
 				}
 			}
