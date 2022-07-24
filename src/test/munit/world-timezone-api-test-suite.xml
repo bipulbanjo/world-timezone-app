@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="world-timezone-api-test-suite.xml" />
+	<munit:test name="world-timezone-api-test-suite-world-timezone-apiFlowTest" doc:id="821cbb3a-1509-437c-b32b-36e4af1b29ea" description="Test">
+		<munit:behavior >
+			<munit:set-event doc:name="Set Event" doc:id="0d47001f-fc68-44c1-a8c3-cac96f14ba55" >
+				<munit:attributes value='#[{uriParams:{city:"Kolkata",region:"Asia"}}]' />
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to world-timezone-apiFlow" doc:id="5ed5221a-9b2c-4faf-a3fa-dcda78b07d6f" name="world-timezone-apiFlow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-that doc:name="Assert that" doc:id="254df334-1cd1-4a33-87a4-d572a19319ce" expression="#[payload]" is="#[MunitTools::notNullValue()]"/>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="world-timezone-api-test-suite-world-timezone-apiFlowTest1" doc:id="121c281d-fc8f-44e6-aac8-e069df7ba14c" description="Test">
+		<munit:behavior >
+			<munit:set-event doc:name="Set Event" doc:id="36c40cd3-69c1-4e11-9998-443e8bd3d070" >
+				<munit:attributes value='#[{uriParams:{city:"Kolkata",region:"Asia"}}]' />
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to world-timezone-apiFlow" doc:id="0d69232f-db82-417c-a298-e6e93b53a328" name="world-timezone-apiFlow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-that doc:name="Assert that" doc:id="6767513c-608f-4f75-af62-401ae34800ab" expression="#[payload.dst]" is="#[MunitTools::equalTo(false)]"/>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>
