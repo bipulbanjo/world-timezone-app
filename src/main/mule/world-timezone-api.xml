@@ -22,20 +22,5 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 }]]]></http:uri-params>
 		</http:request>
 		</async>
-		<set-payload value="#[['apple','banana','orange']]" doc:name="Set Payload" doc:id="85af566f-7ccf-42c7-a701-2f3155344a89" />
-		<parallel-foreach doc:name="Parallel For Each" doc:id="1e13f4e6-5a59-453e-a67a-178f27633aba" >
-			<choice doc:name="Choice" doc:id="0d89dda2-aba3-43b2-b54c-306fe4be5e40" >
-				<when expression="#[payload == 'apple']">
-					<logger level="INFO" doc:name="Logger" doc:id="de6e3cc2-7981-4cca-b7b6-ec082847ad38" message="apple"/>
-				</when>
-				<when expression="#[payload == 'orange']">
-					<logger level="INFO" doc:name="Logger" doc:id="2cc356d2-8362-4d72-a3f3-7df27ddf798f" message="orange"/>
-				</when>
-				<otherwise >
-					<logger level="INFO" doc:name="Logger" doc:id="650af4c9-db6b-4361-9b0e-f7d50c1edfb3" message="Nothing"/>
-				</otherwise>
-			</choice>
-		</parallel-foreach>
-		<logger level="INFO" doc:name="Logger" doc:id="6464da1b-8832-4bf5-b41d-cbccc692ce46" message="#[attributes.uriParams.city]"/>
 	</flow>
 </mule>
