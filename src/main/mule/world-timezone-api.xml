@@ -12,8 +12,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</http:listener-config>
 	<flow name="world-timezone-apiFlow" doc:id="561b9afe-cd76-476c-8ff0-cc9645ad8d4f" >
 		<http:listener doc:name="Listener" doc:id="48c3035d-37be-4785-bda3-95bd13ab01c4" config-ref="HTTP_Listener_config" path="/api/{region}/{city}"/>
-		<async doc:name="Async" doc:id="0cb6df62-a961-4f42-8950-30cf1f7735ad" >
-			<http:request method="GET" doc:name="Request" doc:id="d14e1757-1010-491b-8a13-446caba62eac" config-ref="HTTP_Request_configuration" path="/timezone/{region}/{city}">
+		<http:request method="GET" doc:name="Request" doc:id="d14e1757-1010-491b-8a13-446caba62eac" config-ref="HTTP_Request_configuration" path="/timezone/{region}/{city}">
 			<http:uri-params><![CDATA[#[output application/java
 ---
 {
@@ -21,6 +20,5 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	"city" : attributes.uriParams.city
 }]]]></http:uri-params>
 		</http:request>
-		</async>
 	</flow>
 </mule>
