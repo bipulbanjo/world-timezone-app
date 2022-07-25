@@ -33,9 +33,9 @@
 				<extensions>true</extensions>
 				<configuration>
 					<cloudHubDeployment>
-						<username>baba_dev</username>
-						<password>Baba.dev@123</password>
-						<environment>Sandbox</environment>
+						<username>dev_baba</username>
+						<password>Dev.baba@123</password>
+						<environment>Production</environment>
 						<workers>1</workers>
 						<workerType>Micro</workerType>
 						<applicationName>TimeZoneApi-v1</applicationName>
